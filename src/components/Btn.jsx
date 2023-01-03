@@ -11,10 +11,10 @@ export default function Btn(props) {
 	return (
 		<div>
 			{!props.check && <button style={held} onClick={props.checkBtn} className='answer'>
-				{props.value}
+				{atob(props.value)}
 			</button>}
 			{props.check && <button disabled style={check} onClick={props.checkBtn} className='answer'>
-				{props.value}
+				{atob(props.value)}
 			</button>}
 		</div>
 	);

@@ -32,7 +32,7 @@ function App() {
 	const [newGame, setNewGame] = React.useState(false);
 
 	React.useEffect(() => {
-		fetch('https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple')
+		fetch('https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple&encode=base64')
 			.then(res => res.json())
 			.then(data =>
 				setQuestions(() => {

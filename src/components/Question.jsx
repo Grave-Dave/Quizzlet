@@ -68,7 +68,7 @@ export default function Questions(props) {
 
 	return (
 		<div className='question'>
-			<h1 className='question__text'>{props.question}</h1>
+			<h1 className='question__text'>{atob(props.question)}</h1>
 			<div className='answer-box'>{btns}</div>
 		</div>
 	);
