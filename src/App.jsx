@@ -46,7 +46,6 @@ function App() {
 		)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
 				setQuestions(() => {
 					return data.results.map(obj => {
 						return {
@@ -69,12 +68,12 @@ function App() {
 			[name]: value,
 		}));
 	}
-	console.log(input);
-
+	
 	function handleStart() {
 		if (check) {
 			setStart(false);
 			setCheck(false);
+			setWin(false)
 		} else {
 			setIsCounting(true);
 			setTime(3);
@@ -85,7 +84,6 @@ function App() {
 			}, 3000);
 		}
 	}
-
 	function handleCheck() {
 		setCheck(prevCheck => !prevCheck);
 	}
@@ -126,7 +124,6 @@ function App() {
 	React.useEffect(() => {
 		if (score === 5) setWin(true);
 		if (!check) setWin(false);
-		console.log(score);
 	}, [score]);
 
 	React.useEffect(() => {
@@ -143,7 +140,7 @@ function App() {
 					{selectedQuestions}
 					{check ? (
 						<div className='check-box'>
-							<p className='check-result'>You scored {score}/5 correct answers</p>
+							<p className='check-result'>You scored {score}/{input.questions} correct answers</p>
 							<button onClick={handleNewGame} className='question__btn'>
 								{check ? 'New game' : 'Check Answers'}
 							</button>
@@ -163,7 +160,7 @@ function App() {
 					<Text className='welcome-site__text'>Test your knowledge</Text>
 					<form>
 						<select name='category' onChange={handleChange} value={input.category}>
-							<option value='anyCategory'>Any Category</option>
+							<option value=''>Any Category</option>
 							<option value='9'>General Knowlage</option>
 							<option value='10'>Books</option>
 							<option value='11'>Film</option>
@@ -177,13 +174,13 @@ function App() {
 							<option value='28'>Vehicles</option>
 						</select>
 						<select name='difficulty' onChange={handleChange} value={input.difficulty}>
-							<option value='anyDifficulty'>Any Difficulty</option>
+							<option value=''>Any Difficulty</option>
 							<option value='easy'>Easy</option>
 							<option value='medium'>Medium</option>
 							<option value='hard'>Hard</option>
 						</select>
 						<select name='type' onChange={handleChange} value={input.type}>
-							<option value='anyType'>Any Type</option>
+							<option value=''>Any Type</option>
 							<option value='multiple'>Multiple Choice</option>
 							<option value='boolean'>True/ False</option>
 						</select>

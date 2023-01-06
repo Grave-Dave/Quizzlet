@@ -5,7 +5,6 @@ import { nanoid } from 'nanoid';
 import he from 'he'
 
 export default function Questions(props) {
-	// console.log(props);
 
 	// **creating an array of four random numbers without repetition from 0 to 3
 	const numArr = [];

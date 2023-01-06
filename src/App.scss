@@ -113,7 +113,7 @@
 }
 
 .answer {
-	min-width: 200px;
+	width: 200px;
 	flex: 1 1 300px;
 	padding: 0.5em 2em;
 	margin: 0 1em;
@@ -160,16 +160,22 @@ form{
 @media (min-width: 768px) {
 	.question {
 		padding: 3em 4em;
+		max-width: 1000px;
 		&__text {
 			margin-bottom: 1em;
 			font-size: 2.3rem;
 		}
+	}
+	.answer {
+		width: auto;
+		min-width: 300px;
 	}
 }
 @media (min-width: 992px) {
 	.answer {
 		flex: 1 1 400px;
 		max-width: 400px;
+		min-width: 350px;
 	}
 }
 
