@@ -1,6 +1,7 @@
-export default function Btn(props) {
-	// console.log(props);
+import he from 'he'
 
+export default function Btn(props) {
+	
 	const held = {
 		backgroundColor: props.isHeld ? '#D6DBF5' : '',
 	};
@@ -10,11 +11,11 @@ export default function Btn(props) {
 
 	return (
 		<div>
-			{!props.check && <button style={held} onClick={props.checkBtn} className='answer'>
-				{atob(props.value)}
+			{props.value && !props.check && <button style={held} onClick={props.checkBtn} className='answer'>
+				{he.decode(props.value)}
 			</button>}
-			{props.check && <button disabled style={check} onClick={props.checkBtn} className='answer'>
-				{atob(props.value)}
+			{props.value && props.check && <button disabled style={check} onClick={props.checkBtn} className='answer'>
+				{he.decode(props.value)}
 			</button>}
 		</div>
 	);

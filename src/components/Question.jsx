@@ -2,9 +2,9 @@ import '../App.scss';
 import Btn from './Btn';
 import React from 'react';
 import { nanoid } from 'nanoid';
+import he from 'he'
 
 export default function Questions(props) {
-	// console.log(props);
 
 	// **creating an array of four random numbers without repetition from 0 to 3
 	const numArr = [];
@@ -68,8 +68,10 @@ export default function Questions(props) {
 
 	return (
 		<div className='question'>
-			<h1 className='question__text'>{atob(props.question)}</h1>
+			<h1 className='question__text'>{he.decode(props.question)}</h1>
 			<div className='answer-box'>{btns}</div>
 		</div>
 	);
 }
+
+
