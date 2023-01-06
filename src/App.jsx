@@ -122,7 +122,7 @@ function App() {
 	}
 
 	React.useEffect(() => {
-		if (score === 5) setWin(true);
+		if (score === parseInt(input.questions)) setWin(true);
 		if (!check) setWin(false);
 	}, [score]);
 
